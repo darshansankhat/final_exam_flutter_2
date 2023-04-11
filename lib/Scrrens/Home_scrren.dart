@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Model_class/Contact_model.dart';
 
@@ -139,21 +142,30 @@ class _Home_scrrenState extends State<Home_scrren> {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.blue)
           ),
+          child:c1.vivek==true?Image.file(File("${c1.img}")):Image.asset("assets/image/p.png"),
         ),
         title: Text("${c1.name}",style: TextStyle(fontSize: 20,color: Colors.blue),),
         subtitle: Text("${c1.num}",style: TextStyle(fontSize: 15),),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton(onPressed: () {
-
-            }, icon: Icon(Icons.phone_sharp,size: 30,)),
-            IconButton(onPressed: () {
-
-            }, icon: Icon(Icons.message_rounded,size: 30,)),
-          ],
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(onPressed: () {
+                String link="tel: ${c1.num}";
+                launchUrl(Uri.parse(link));
+              }, icon: Icon(Icons.phone_sharp,size: 30,)),
+              IconButton(onPressed: () {
+                String link = "sms: ${c1.num}";
+                launchUrl(Uri.parse(link));
+              }, icon: Icon(Icons.message_rounded,size: 30,)),
+              IconButton(onPressed: () {
+                String link = "mailto: smith@example.org";
+                launchUrl(Uri.parse(link));
+              }, icon: Icon(Icons.email,size: 30,)),
+            ],
+          )
+        ],
         ),
-      ),
     );
   }
 }

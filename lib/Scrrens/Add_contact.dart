@@ -39,7 +39,7 @@ class _Add_contact_scrrenState extends State<Add_contact_scrren> {
           actions: [
             InkWell(
               onTap: () {
-                contactModel c1 = contactModel(name: txtname.text,num: txtnum.text,img: img);
+                contactModel c1 = contactModel(name: txtname.text,num: txtnum.text,img: img,vivek: true);
                 contactList.add(c1);
                 Navigator.pop(context);
               },
@@ -133,6 +133,7 @@ class _Add_contact_scrrenState extends State<Add_contact_scrren> {
                 //number
                 SizedBox(height: 20),
                 TextFormField(
+                  keyboardType: TextInputType.number,
                   controller: txtnum,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
