@@ -115,8 +115,13 @@ class _Home_scrrenState extends State<Home_scrren> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
+            Navigator.pushNamed(context, "add").then((value) {
+              setState(() {
 
+              });
+            },);
           },
+          child: Icon(Icons.add,size: 30,color: Colors.white,),
         ),
       ),
     );
